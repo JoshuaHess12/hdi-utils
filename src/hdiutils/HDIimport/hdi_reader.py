@@ -95,14 +95,14 @@ class HDIreader:
                 mask=mask,
                 **kwargs
             )
+            
+        # If none of the above print an update and an error
+        else:
+            # Raise an error saying that the file extension is not recognized
+            raise ValueError("File extension not recognized.")
 
         # check to see if saving storage
         if save_mem:
             # set image arrays to none
             self.hdi.data.image = None
             self.hdi.data.mask = None
-
-        # If none of the above print an update and an error
-        else:
-            # Raise an error saying that the file extension is not recognized
-            raise ValueError("File extension not recognized.")
