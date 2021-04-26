@@ -38,8 +38,8 @@ configuration = {
     "maintainer": "Joshua Hess",
     "maintainer_email": "joshmhess12@gmail.com",
     "license": "MIT",
-    "package_dir": {"": "src"},
-    "packages": setuptools.find_packages(where='src')
+    "package_dir": {"": "hdiutils"},
+    "packages": setuptools.find_packages(where='hdiutils')
 }
 
 # Apply setup
