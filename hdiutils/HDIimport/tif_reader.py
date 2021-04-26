@@ -41,7 +41,7 @@ class TIFreader:
         if len(im_shape) > 2:
             ##########This will fail if the array is a 3 or 4 channel image with 5 pixels in the x direction...shouldnt happen##########
             # Check if channel numbers are 3 or 4
-            if (im_shape[2] is 3) or (im_shape[2] is 4):
+            if (im_shape[2] == 3) or (im_shape[2] == 4):
                 pass
             else:
                 # If number of channels is less than two then swap the axes to be zyxc
