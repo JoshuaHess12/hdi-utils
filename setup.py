@@ -5,31 +5,42 @@
 # Import setuptools
 from setuptools import setup
 
-# Extract readme information
-with open("README.md", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
+# Get the readme
+def readme():
+    with open("README.md", encoding="UTF-8") as readme_file:
+        return readme_file.read()
 
-# Pip setup
-setup(
-    name='hdi-utils',
-    version='0.1.0',
-    description='General utily functions for high-dimensional image data',
-    author='Joshua Hess',
-    author_email='joshmhess12@gmail.com',
-    license='MIT',
-    packages=['hdi-utils'],
-    long_description=long_description,
-    long_description_content_type="text/markdown",
-    url="https://github.com/JoshuaHess12/hdi-utils",
-    project_urls={
-        "Bug Tracker": "https://github.com/JoshuaHess12/hdi-utils/issues",
-    },
-    classifiers=[
-        "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
+# Pip configuration
+configuration = {
+    "name": "hdi-utils",
+    "version": "0.0.1",
+    "description": "High-dimensional image data utilities",
+    "long_description": readme(),
+    "long_description_content_type": "text/markdown",
+    "classifiers": [
+        "Intended Audience :: Science/Research",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved",
+        "Programming Language :: Python",
+        "Topic :: Software Development",
+        "Topic :: Scientific/Engineering",
+        "Operating System :: Microsoft :: Windows",
+        "Operating System :: POSIX",
+        "Operating System :: Unix",
+        "Operating System :: MacOS",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
     ],
-    package_dir={"": "src"},
-    packages=setuptools.find_packages(where="src"),
-    python_requires=">=3.6",
-)
+    "keywords": "high-dimensional image imaging mulitplex",
+    "url": "https://github.com/JoshuaHess12/hdi-utils",
+    "maintainer": "Joshua Hess",
+    "maintainer_email": "joshmhess12@gmail.com",
+    "license": "MIT",
+    "packages": ["HDIutils"],
+    "packages": setuptools.find_packages(where="src")
+}
+
+# Apply setup
+setup(**configuration)
