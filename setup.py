@@ -47,7 +47,7 @@ configuration = {
               'nibabel>=3.2.1',
               'h5py>=3.1.0',
               'scikit-image>=0.17.2',
-              'scipy>=1.6.2'
+              'scipy>=1.5.4'
           ]
 }
 
