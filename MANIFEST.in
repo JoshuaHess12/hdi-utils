@@ -1,3 +1,4 @@
+include *.in
 include LICENSE
-recursive-include src *.md
-recursive-include src *.py
+recursive-include hdiutils *.md
+recursive-include hdiutils *.py

@@ -40,6 +40,15 @@ configuration = {
     "license": "MIT",
     "package_dir": {"": "hdiutils"},
     "packages": setuptools.find_packages(where='hdiutils')
+    "install_requires":[
+              'numpy>=1.20.2',
+              'pandas>=1.2.4',
+              'pyimzML>=1.4.1',
+              'nibabel>=3.2.1',
+              'h5py>=3.2.1',
+              'scikit-image>=0.18.1',
+              'scipy>=1.6.2'
+          ]
 }
 
 # Apply setup
