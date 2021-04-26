@@ -45,7 +45,7 @@ configuration = {
               'pandas>=1.1.5',
               'pyimzML>=1.4.1',
               'nibabel>=3.2.1',
-              'h5py>=3.2.1',
+              'h5py>=3.1.0',
               'scikit-image>=0.18.1',
               'scipy>=1.6.2'
           ]
