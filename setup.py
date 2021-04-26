@@ -3,7 +3,7 @@
 # Developed at the Vaccine & Immunotherapy Center, Mass. General Hospital
 
 # Import setuptools
-from setuptools import setup
+import setuptools
 
 # Get the readme
 def readme():
@@ -31,6 +31,7 @@ configuration = {
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
     ],
     "keywords": "high-dimensional image imaging mulitplex",
     "url": "https://github.com/JoshuaHess12/hdi-utils",
@@ -42,4 +43,4 @@ configuration = {
 }
 
 # Apply setup
-setup(**configuration)
+setuptools.setup(**configuration)
