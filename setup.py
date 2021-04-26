@@ -13,7 +13,7 @@ def readme():
 # Pip configuration
 configuration = {
     "name": "hdi-utils",
-    "version": "0.0.2.1",
+    "version": "0.0.3",
     "description": "High-dimensional image data utilities",
     "long_description": readme(),
     "long_description_content_type": "text/markdown",
@@ -38,8 +38,8 @@ configuration = {
     "maintainer": "Joshua Hess",
     "maintainer_email": "joshmhess12@gmail.com",
     "license": "MIT",
-    "package_dir": {"": "hdiutils"},
-    "packages": setuptools.find_packages(where='hdiutils'),
+    "package_dir": {"": "src"},
+    "packages": setuptools.find_packages(where='src'),
     "install_requires":[
               'numpy>=1.20.2',
               'pandas>=1.2.4',

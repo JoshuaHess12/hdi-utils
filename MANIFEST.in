@@ -1,4 +1,0 @@
-include *.in
-include LICENSE
-recursive-include hdiutils *.md
-recursive-include hdiutils *.py
