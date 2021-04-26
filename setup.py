@@ -41,7 +41,7 @@ configuration = {
     "package_dir": {"": "src"},
     "packages": setuptools.find_packages(where='src'),
     "install_requires":[
-              'numpy>=1.20.2',
+              'numpy>=1.19.5',
               'pandas>=1.2.4',
               'pyimzML>=1.4.1',
               'nibabel>=3.2.1',
