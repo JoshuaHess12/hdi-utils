@@ -11,7 +11,7 @@ from .cyt_reader import CYTreader
 from .imzml_reader import imzMLreader
 from .nifti1_reader import NIFTI1reader
 
-path_to_data = r"/Users/joshuahess/Desktop/MIAAIM_nf"
+
 # Create class object to store high-dimensional imaging data
 class HDIreader:
     """Class for importing high-dimensional imaging data or histology data."""
