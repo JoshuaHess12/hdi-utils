@@ -11,7 +11,7 @@ from .cyt_reader import CYTreader
 from .imzml_reader import imzMLreader
 from .nifti1_reader import NIFTI1reader
 
-
+path_to_data = r"/Users/joshuahess/Desktop/MIAAIM_nf"
 # Create class object to store high-dimensional imaging data
 class HDIreader:
     """Class for importing high-dimensional imaging data or histology data."""
@@ -60,6 +60,31 @@ class HDIreader:
         # Get file extensions for NIFTI1 files
         nii_ext = [".nii"]
 
+        # check if the path is a directory
+        # this portion of the script will serve as the reading function for
+        # file types that have paired files in folders (e.g. imzML MSI data
+        # and some spatial transcriptomics do this)
+        # within each data reading function are compatible functions for parsing
+        # folders -- here we go ahead and parse the file extensions so that new
+        # data types can be easily added
+        if path_to_data.is_dir():
+            # parse the inputs as ibd and imzml
+            files = [x for x in path_to_data.rglob('*')]
+            # create list for additional files to store (like ibds)
+            pairs = []
+            # iterate through the files
+            for f in files:
+                if str(f).endswith(tuple(all_ext)):
+                    # return the path -- note this assumes that you only have
+                    # a single image in the directory!
+                    path_to_data = f
+                    # break the loop
+                    break
+                # otherwise add the extra files to the list of extras
+                else:
+                    # append list
+                    pairs.append(f)
+
         # Check to see if there is a valid file extension for this class
         if str(path_to_data).endswith(tuple(cyt_ext)):
             # Read the data with CYTreader
@@ -95,7 +120,7 @@ class HDIreader:
                 mask=mask,
                 **kwargs
             )
-            
+
         # If none of the above print an update and an error
         else:
             # Raise an error saying that the file extension is not recognized

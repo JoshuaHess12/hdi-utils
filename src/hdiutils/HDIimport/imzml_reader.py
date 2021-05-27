@@ -42,6 +42,11 @@ class imzMLreader:
 
         # Create a pathlib object for the path_to_imzML
         path_to_imzML = Path(path_to_imzML)
+        # check to see if the input is a folder
+        if path_to_imzML.is_dir():
+            # parse the inputs as ibd and imzml
+            path_to_ibd = [x for x in path_to_imzML.rglob('*.ibd')][0]
+            path_to_imzML = [x for x in path_to_imzML.rglob('*.imzML')][0]
 
         # Set the file extensions that we can use with this class
         ext = [".imzML"]
