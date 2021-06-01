@@ -77,11 +77,11 @@ class CYTreader:
         # get the number of channels
         if len(self.data.image.shape) > 2:
             # Get the number of channels in the imaging data
-            self.num_channels = self.data.image_shape[2]
+            self.data.num_channels = self.data.image_shape[2]
         # Otherwise just create a single entry for single-channel image
         else:
             # single channel
-            self.num_channels = 1
+            self.data.num_channels = 1
 
         # Check to see if the mask exists
         if mask is not None:
@@ -101,9 +101,9 @@ class CYTreader:
             channels = ReadMarkers(path_to_markers)
         else:
             # Check to see if the image shape includes a channel (if not, it is one channel)
-            if self.num_channels > 2:
+            if self.data.num_channels > 2:
                 # Create a numbered marker list based on channel number
-                channels = [str(num) for num in range(0, self.num_channels)]
+                channels = [str(num) for num in range(0, self.data.num_channels)]
             # Otherwise just create a single entry for single-channel image
             else:
                 # Create a numbered marker list based on channel number

@@ -213,9 +213,9 @@ class imzMLreader:
         # get number of channels
         # here, we assume that each of the pixels has the same number of
         # m/z peaks, so we can take only the first element of the list
-        self.num_channels = self.data.mzLengths[0]
+        self.data.num_channels = self.data.mzLengths[0]
         # update the data type
-        self.hdi_type = "raster"
+        self.data.hdi_type = "raster"
         # Print an update that the import is finished
         print("Finished")
 
