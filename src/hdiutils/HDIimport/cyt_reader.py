@@ -74,6 +74,14 @@ class CYTreader:
         self.data.image_shape = self.data.image.shape
         # Get the array size for the image
         self.data.array_size = (self.data.image_shape[0], self.data.image_shape[1])
+        # get the number of channels
+        if len(self.data.image.shape) > 2:
+            # Get the number of channels in the imaging data
+            self.num_channels = self.data.image_shape[2]
+        # Otherwise just create a single entry for single-channel image
+        else:
+            # single channel
+            self.num_channels = 1
 
         # Check to see if the mask exists
         if mask is not None:
@@ -93,11 +101,9 @@ class CYTreader:
             channels = ReadMarkers(path_to_markers)
         else:
             # Check to see if the image shape includes a channel (if not, it is one channel)
-            if len(self.data.image.shape) > 2:
-                # Get the number of channels in the imaging data
-                num_channels = self.data.image_shape[2]
+            if self.num_channels > 2:
                 # Create a numbered marker list based on channel number
-                channels = [str(num) for num in range(0, num_channels)]
+                channels = [str(num) for num in range(0, self.num_channels)]
             # Otherwise just create a single entry for single-channel image
             else:
                 # Create a numbered marker list based on channel number
@@ -140,6 +146,8 @@ class CYTreader:
 
         # Add the filename to the data object
         self.data.filename = path_to_cyt
+        # update the data type
+        self.data.hdi_type = "array"
 
         # Print an update on the parsing of cytometry data
         print("Finished parsing image data")

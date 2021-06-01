@@ -210,7 +210,12 @@ class imzMLreader:
         self.data.filename = path_to_imzML
         # Add None to the data image (not currently parsing full array)
         self.data.image = None
-
+        # get number of channels
+        # here, we assume that each of the pixels has the same number of
+        # m/z peaks, so we can take only the first element of the list
+        self.num_channels = self.data.mzLengths[0]
+        # update the data type
+        self.hdi_type = "raster"
         # Print an update that the import is finished
         print("Finished")
 
@@ -239,3 +244,18 @@ class imzMLreader:
         sheet = pd.DataFrame(self.data.pixel_table.columns, columns=["channels"])
         # Write out the sheet to csv
         sheet.to_csv(path_to_imzML.stem + "_channels.csv", sep="\t")
+
+    def CreateSingleChannelArray(self, idx):
+        """
+        Function for extracting a single channel image from the array given an index
+        """
+        # create temporary image of all 0s to fill
+        im = np.zeros((self.data.array_size[0], self.data.array_size[1]), dtype=np.float32)
+        # Run through the data coordinates and fill array
+        for i, (x, y, z) in enumerate(self.data.coordinates):
+            # Add data to this slice -- only extact this index for each pixel
+            # getspectrum returns mzs, intensities for pixels --> take only the intensity
+            im[y - 1, x - 1] = self.data.getspectrum(i)[1][idx]
+
+        # return the filled array
+        return im
