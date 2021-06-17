@@ -76,15 +76,13 @@ class HDIreader:
             for f in files:
                 if str(f).endswith(tuple(all_ext)):
                     # check for mask conditional
-                    if (mask) and ("mask" in str(f.stem)):
+                    if ((mask) and ("mask" in str(f.stem))):
                         # check for the mask suffix
                         mask = f
                     else:
                         # return the path -- note this assumes that you only have
                         # a single image in the directory!
                         path_to_data = f
-                    # break the loop
-                    break
                 # otherwise add the extra files to the list of extras
                 else:
                     # append list
