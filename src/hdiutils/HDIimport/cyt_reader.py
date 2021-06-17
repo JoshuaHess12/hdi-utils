@@ -86,7 +86,7 @@ class CYTreader:
         # Check to see if the mask exists
         if mask is not None:
             # Check to see if the mask is a path (string)
-            if isinstance(mask, str):
+            if isinstance(mask, Path):
                 ##############Change in future to take arbitrary masks not just tiff??################
                 mask = skimage.io.imread(str(mask), plugin="tifffile")
             # Ensure the mask is a sparse boolean array
