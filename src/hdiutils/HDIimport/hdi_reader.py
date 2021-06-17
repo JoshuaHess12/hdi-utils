@@ -79,6 +79,8 @@ class HDIreader:
                     if ((mask) and ("mask" in str(f.stem))):
                         # check for the mask suffix
                         mask = f
+                        # print update
+                        print("mask: "+str(mask))
                     else:
                         # return the path -- note this assumes that you only have
                         # a single image in the directory!
