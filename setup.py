@@ -13,7 +13,7 @@ def readme():
 # Pip configuration
 configuration = {
     "name": "hdi-utils",
-    "version": "0.0.3",
+    "version": "0.0.3.1",
     "description": "High-dimensional image data utilities",
     "long_description": readme(),
     "long_description_content_type": "text/markdown",
